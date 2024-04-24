@@ -1,7 +1,7 @@
 import { connect } from "@/dbConfig/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
 import Gallery from "@/models/galleryModel";
-import {uploadOnCloudinary} from "@/helpers/cloudinary.js"
+// import {uploadOnCloudinary} from "@/helpers/cloudinary.js"
 
 connect()
 
@@ -18,17 +18,17 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({error: "image file not uploded"}, {status: 400})
         }
 
-        const favImage = await uploadOnCloudinary(imageLocalPath);
-        const videoFile = await uploadOnCloudinary(videoLocalPath);
+        // const favImage = await uploadOnCloudinary(imageLocalPath);
+        // const videoFile = await uploadOnCloudinary(videoLocalPath);
 
-        if(!favImage && videoFile){
-            return NextResponse.json({error: "Image File Is Required"})
-        }
+        // if(!favImage && videoFile){
+        //     return NextResponse.json({error: "Image File Is Required"})
+        // }
 
         const newGallery = await Gallery.create({
 
-            favImage ,
-            videoFile,
+            // favImage ,
+            // videoFile,
         })
 
         const createdGallery = await newGallery.save()

@@ -1,7 +1,7 @@
 import React from 'react'
-import { ImagesSliderDemo } from "@/components/HeroSection";
+import { LandingImage } from "@/components/HeroSection";
 import { ApplicationFrom } from "@/components/ApplicationFrom";
-import { GoogleGeminiEffectDemo } from "@/components/GoogleGeminiEffect";
+import { LtspbLogosec } from "@/components/LtspbLogoSec";
 import { CardStackDemo } from "@/components/Noticbord";
 import { ParallaxScrollSecondDemo } from "@/components/GallarySection";
 import { TopperStudentbar } from "@/components/AwardStudent";
@@ -14,11 +14,11 @@ const Home = () => {
     <div>
             <div>
          
-        <ImagesSliderDemo/>
+        <LandingImage/>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 ">
-          <div className=""><GoogleGeminiEffectDemo/></div>
-       <div><div className="mt-[6rem] mr-11">
+          <div className=""><LtspbLogosec/></div>
+       <div><div className="mt-[8rem] mr-11">
         <ApplicationFrom /></div>
        <CardStackDemo/>
        <ParallaxScrollSecondDemo/>

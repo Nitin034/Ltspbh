@@ -1,6 +1,6 @@
 import { connect } from "@/dbConfig/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
-import Toper from "@/models/ToperModel";
+import Topper from "@/models/TopperModel";
 
 connect()
 
@@ -8,21 +8,22 @@ connect()
 export async function POST(request: NextRequest){
     try {
         const reqBody = await request.json()
-        const{someText, toperImage, rank} = reqBody
+        const{topperName, someText, toperImage, rank} = reqBody
 
-        const newToper = new Toper({
+        const newTopper = new Topper({
             someText,
+            topperName,
             toperImage,
-            rank
+            rank,
         })
 
-        const savedToper = await newToper.save()
-        console.log(savedToper);
+        const savedTopper = await newTopper.save()
+        console.log(savedTopper);
 
         return NextResponse.json({
             message: "Toper Detaile Successfully Saved",
             success: true,
-            savedToper
+            savedTopper
         })
         
     } catch (error: any) {

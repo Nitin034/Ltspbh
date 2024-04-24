@@ -1,9 +1,9 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import React from "react";
-import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
+import { LtspbLogo } from "./ui/ltspbLogo";
 
-export function GoogleGeminiEffectDemo() {
+export function LtspbLogosec() {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -26,7 +26,7 @@ export function GoogleGeminiEffectDemo() {
       className="h-[400vh]   w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
       ref={ref}
     >
-      <GoogleGeminiEffect
+      <LtspbLogo
         pathLengths={[
           pathLengthFirst,
           pathLengthSecond,

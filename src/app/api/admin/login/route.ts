@@ -24,7 +24,7 @@ export async function POST(request: NextRequest){
 
        const validPassCode = await bcryptjs.compare(passcode, user.passcode)
 
-       if (!(validPassword && passcode)){
+       if (!(validPassword && validPassCode)){
         return NextResponse.json({error: "Check Your Credentials"}, {status: 400})
        }
 

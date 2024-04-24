@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 
-const toperSchema = new mongoose.Schema({
+const topperSchema = new mongoose.Schema({
+    topperName: {
+        type: String,
+        required: [true, "Please Write topper Name"]
+    },
     someText: {
         type: String,
         required: [true, "Please Write A Message for Student"]
@@ -16,6 +20,6 @@ const toperSchema = new mongoose.Schema({
     
 }, {timestamps: true})
 
-const Toper = mongoose.models.topers || mongoose.model("topers", toperSchema)
+const Topper = mongoose.models.toppers || mongoose.model("toppers", topperSchema)
 
-export default Toper
+export default Topper
