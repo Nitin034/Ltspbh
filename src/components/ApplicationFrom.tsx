@@ -53,7 +53,7 @@ export function ApplicationFrom() {
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input relative bg-white/80 dark:bg-black">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-        ADMISSIONS OPEN FOR 2024
+        ADMISSIONS OPEN FOR 24-25
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
          Please fill the below admission enquiry form
@@ -63,28 +63,28 @@ export function ApplicationFrom() {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="Name">Student Name</Label>
-            <Input id="firstname" value={student.studentname} onChange={(e) => setStudent({...student, studentname: e.target.value})}placeholder="Name" type="text" />
+            <Input id="firstname" value={student.studentname} onChange={(e) => setStudent({...student, studentname: e.target.value})}placeholder="Student Name*" type="text" />
           </LabelInputContainer>
           <LabelInputContainer>
-            <Label htmlFor="Classname">Student class</Label>
-            <Input id="class" value={student.studentclass} onChange={(e) => setStudent({...student, studentclass: e.target.value})}placeholder="LKG" type="text" />
+            <Label htmlFor="Classname">Seeking Admission in Class</Label>
+            <Input id="class" value={student.studentclass} onChange={(e) => setStudent({...student, studentclass: e.target.value})}placeholder="LKG*" type="text" />
           </LabelInputContainer>
         </div>
           <LabelInputContainer>
-            <Label htmlFor="Name">Parents Name</Label>
-            <Input id="parentsname" value={student.fathername} onChange={(e) => setStudent({...student, fathername: e.target.value})} placeholder="Parents Name" type="text" />
+            <Label htmlFor="Name">Father Name</Label>
+            <Input id="fathername" value={student.fathername} onChange={(e) => setStudent({...student, fathername: e.target.value})} placeholder="Father Name*" type="text" />
           </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Enter Email Address</Label>
-          <Input id="email" value={student.email} onChange={(e) => setStudent({...student, email: e.target.value})} placeholder="Email" type="email" />
+          <Input id="email" value={student.email} onChange={(e) => setStudent({...student, email: e.target.value})} placeholder="Email(Father)*" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
         <Label htmlFor="number">Enter Mobile Number</Label>
-          <Input id="number" value={student.mobilenumber} onChange={(e) => setStudent({...student, mobilenumber: e.target.value})} placeholder="Mobile Number" type="number" />
+          <Input id="number" value={student.mobilenumber} onChange={(e) => setStudent({...student, mobilenumber: e.target.value})} placeholder="Mobile Number(Father)*" type="number" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
         <Label htmlFor="number">Enter Your Address</Label>
-          <Input id="address" value={student.studentaddress} onChange={(e) => setStudent({...student, studentaddress: e.target.value})} placeholder="Address" type="text" />
+          <Input id="address" value={student.studentaddress} onChange={(e) => setStudent({...student, studentaddress: e.target.value})} placeholder="Address*" type="text" />
         </LabelInputContainer>
         
         

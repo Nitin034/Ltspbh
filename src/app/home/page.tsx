@@ -8,6 +8,7 @@ import { TopperStudentbar } from "@/components/AwardStudent";
 import {  FounderSectionPara, TextGenerateEffectDemo } from "@/components/FounderSection";
 import { ContactCards, AddressCards } from "@/components/Contact";
 import { FooterSection } from "@/components/Footer";
+import { CardHoverEffectDemo } from '@/components/EnquiryProsses';
 
 const Home = () => {
   return (
@@ -18,13 +19,16 @@ const Home = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 ">
           <div className=""><LtspbLogosec/></div>
-       <div><div className="mt-[8rem] mr-11">
+       <div><div className="mt-[3rem] mr-11">
         <ApplicationFrom /></div>
        <CardStackDemo/>
        <ParallaxScrollSecondDemo/>
        </div>
         </div>
-        <div><TopperStudentbar/></div>
+        <div>
+          <CardHoverEffectDemo/>
+          <TopperStudentbar/>
+          </div>
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2  p-10 m-10">
           <TextGenerateEffectDemo/>
           <FounderSectionPara/>

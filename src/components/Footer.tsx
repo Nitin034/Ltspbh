@@ -1,16 +1,18 @@
 "use client";
+import Link from "next/link";
 import React from "react";
  
 
 export function FooterSection() {
   return (
-    <div className="flex items-center justify-center bg-[#0E0E10] h-[10rem] rounded-2xl w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3">
-           <h1>ALL Right resorved</h1>
-           <h1>©2024</h1>
-           <h1>NSW SOLUTION</h1>
-        </div>
-    
+    <footer className='w-full border-t-2 border-solid border-white dark:border-yellow-50 font-medium text-lg dark:text-yellow-50 sm:text-base'>
+    <div className='py-8 flex items-center justify-between lg:flex-col lg:-6'>
+       <span>{new Date().getFullYear()} &copy; All Rights Reserved</span> 
+       <div className='flex items-center lg:py-2'> Build With <span className='text-blue-500 text-2xl px-1'>&#9825;</span> 
+       by&nbsp;<Link href="/" className='hover:underline'>Nitin yadav</Link>
+       </div>
+       <Link className='hover:underline' target={"_blank"} href="/">Never Settleworld</Link>
     </div>
+</footer>
   );
 }

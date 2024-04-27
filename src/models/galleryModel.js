@@ -2,13 +2,14 @@ import mongoose from "mongoose";
 
 
 const gallerySchema = new mongoose.Schema({
-    favImage: {
+    image_url: {
         type: String, // cloudinary url
-        required: [true , "Please uploade your beautifull Image"]
+        required: [true , "Please uploade your Image"]
     },
-    videoFile: {
-        type: String, // cloudinary url
-    },
+     public_id:{
+        type: String,
+        required:true
+     }
 
   
     

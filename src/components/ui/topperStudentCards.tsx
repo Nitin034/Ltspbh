@@ -14,6 +14,7 @@ export const TopperStudentCards = ({
     quote: string;
     name: string;
     title: string;
+   
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -87,7 +88,7 @@ export const TopperStudentCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px]"
+            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 mt-5 py-2 md:w-[450px]"
             style={{
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
@@ -95,7 +96,19 @@ export const TopperStudentCards = ({
             key={item.name}
           >
             <blockquote>
-              <div
+          <div className="flex flex-col items-center pb-10">
+         <img className="w-28 h-28 -mt-10 mb-3 rounded-full shadow-lg" src="/images/IMG-20240422-WA0003.jpg" alt="student image"/>
+        <h5 className="mb-1 text-xl font-medium text-orange-400 dark:text-white">{item.name}</h5>
+        <span className="text-sm text-amber-600 dark:text-gray-400"> {item.title}</span>
+        <div className="flex mt-4 md:mt-6">
+        <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
+                {item.quote}
+              </span>
+        </div>
+    </div>
+ 
+
+              {/* <div
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
@@ -111,7 +124,7 @@ export const TopperStudentCards = ({
                     {item.title}
                   </span>
                 </span>
-              </div>
+              </div> */}
             </blockquote>
           </li>
         ))}
