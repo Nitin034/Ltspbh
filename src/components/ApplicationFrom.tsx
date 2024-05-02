@@ -28,7 +28,7 @@ export function ApplicationFrom() {
   const onSubmit = async () => {
     try {
       setLoading(true)
-      const response = await axios.post("/api//admin/student", student)
+      const response = await axios.post("/api/admin/student", student)
       console.log("Your Enquiry Successfully Added" , response.data);
       // window.location.reload();
       

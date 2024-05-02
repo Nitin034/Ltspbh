@@ -32,3 +32,16 @@ export async function POST(request: NextRequest){
         return NextResponse.json({error: error.message}, {status: 500})
     }
 }
+
+export async function GET(request: NextRequest){
+    try {
+        const student = await Student.find();
+        return NextResponse.json({
+            message: "Detaile found",
+            data: student
+        })
+    } catch (error:any) {
+        return NextResponse.json({error: error.message}, {status: 500})
+        
+    }
+}

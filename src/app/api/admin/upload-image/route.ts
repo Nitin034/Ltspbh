@@ -1,12 +1,12 @@
 import { connect } from "@/dbConfig/dbConfig";
 import { UploadImage } from "@/helpers/upload-image";
 import { NextRequest, NextResponse } from "next/server";
-import Gallery from "@/models/galleryModel";
+import Image from "@/models/galleryModel";
 
 connect();
 
 export const GET = async(req:NextRequest)=> {
-    const Images = await Gallery.find({});
+    const Images = await Image.find({});
 
     return NextResponse.json({
         Images: Images,
@@ -20,7 +20,7 @@ export const POST = async(req:NextRequest)=> {
     
     const data:any = await UploadImage(image, "Ltspb-Images")
 
-     await Gallery.create({
+     await Image.create({
         image_url: data?.secure_url,
         public_id: data?.public_id,
     

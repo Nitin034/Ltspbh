@@ -9,6 +9,8 @@ import {  FounderSectionPara, TextGenerateEffectDemo } from "@/components/Founde
 import { ContactCards, AddressCards } from "@/components/Contact";
 import { FooterSection } from "@/components/Footer";
 import { CardHoverEffectDemo } from '@/components/EnquiryProsses';
+import Infosection from '@/components/Infosection';
+import { Classroominfo } from '@/components/Classroominfo';
 
 const Home = () => {
   return (
@@ -26,8 +28,10 @@ const Home = () => {
        </div>
         </div>
         <div>
+          <Infosection/>
           <CardHoverEffectDemo/>
           <TopperStudentbar/>
+          <Classroominfo/>
           </div>
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2  p-10 m-10">
           <TextGenerateEffectDemo/>

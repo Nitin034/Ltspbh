@@ -13,7 +13,12 @@ const transition = {
   restSpeed: 0.001,
 };
 
-export const MenuItem = ({
+const SvgIcon = () => (
+  <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
+</svg>
+);
+export const MenuItem = ({ 
   setActive,
   active,
   item,
@@ -30,10 +35,11 @@ export const MenuItem = ({
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
       >
+<SvgIcon   />
         {item}
       </motion.p>
       {active !== null && (
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
@@ -70,7 +76,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full boder border-transparent dark:bg-black/90 dark:border-white/[0.2] bg-white/90 shadow-input flex justify-center space-x-4 px-8 py-6 "
+      className="relative rounded-lg boder border-transparent dark:bg-black/90 dark:border-white/[0.2] bg-white/10 shadow-input flex justify-center space-x-4 px-6 py-4 "
     >
       {children}
     </nav>

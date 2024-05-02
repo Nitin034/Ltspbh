@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const gallerySchema = new mongoose.Schema({
+const imageSchema = new mongoose.Schema({
     image_url: {
         type: String, // cloudinary url
         required: [true , "Please uploade your Image"]
@@ -15,6 +15,6 @@ const gallerySchema = new mongoose.Schema({
     
 }, {timestamps: true})
 
-const Gallery = mongoose.models.gallerys || mongoose.model("gallerys", gallerySchema)
+const Image = mongoose.models.images || mongoose.model("images", imageSchema)
 
-export default Gallery
+export default Image

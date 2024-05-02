@@ -10,7 +10,7 @@ const Page = () => {
 
     const[images, setImages] = useState<{
       image_url: string; 
-      public_id :string;
+      public_id : string;
       _id: string;
     }[]>([]);
 
@@ -27,6 +27,8 @@ const Page = () => {
           data: { images }, 
         } = await axios.get("/api/admin/upload-image");
         setImages(images)
+        console.log(images)
+
       } catch (error:any) {
         console.log(error.message);
       }
@@ -46,6 +48,7 @@ const Page = () => {
            await FetchAllImages();
 
             
+
         } catch (error: any) {
             console.log("Error" , error.message);
             
@@ -72,6 +75,8 @@ const Page = () => {
       FetchAllImages()
     }, [])
 
+  
+
   return (
     <div>
       <Sidebar/>
@@ -83,7 +88,8 @@ const Page = () => {
         <button className='bg-gray-600 px-4 py-2 rounded-sm text-white'>uplode</button>
       </form>
       <div className='px-10 flex flex-wrap gap-x-5'>
-      {images?.map((cur, i) => {
+      {images && images.map((cur, i) => {
+      {/* {images && images.length > 0 && images.map((cur, i) => { */}
           return(
             <div key={i} className="flex flex-wrap md:-m-2 -m-1">
             <div className="flex flex-wrap w-1/2">
