@@ -1,11 +1,50 @@
 "use client";
+import { useEffect, useState } from "react";
 import { CardStack } from "./ui/card-stack";
 import { cn } from "@/utils/cn";
+import axios from "axios";
+import { NextResponse } from "next/server";
 export function CardStackDemo() {
+
+  const [noticebords, setNoticebords] = useState([]);
+ 
+  const fetchNoticebordData = async () => {
+    try {
+        const response = await axios.get("/api/admin/noticeBord");
+        setNoticebords(response.data.data);
+        console.log(response.data.data);
+
+    } catch (error:any) {
+        return NextResponse.json({error: error.message}, {status: 500})
+    }
+}
+
+useEffect(() => {
+    fetchNoticebordData();
+}, []);
+
   return (
     <div className="h-[40rem] flex items-center justify-center w-full">
       <CardStack items={CARDS} />
     </div>
+
+/* <div> 
+{noticebords.map((noticebord: any)=> (
+<div className="h-[40rem] flex items-center justify-center w-full">
+  <CardStack items={[{
+     id: 0,
+         name: new Date(noticebord.timestamp).toLocaleString(),
+         designation: noticebord.postBy,
+         content: (
+           <p>
+              {noticebord.noticeBord}
+           </p>
+         )
+  }]} />
+</div>
+
+))}
+</div> */
   );
 }
 

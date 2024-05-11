@@ -10,10 +10,14 @@ const topperSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please Write A Message for Student"]
     },
-    toperImage: {
+    toper_Image: {
         type: String, // cloudinary url
         required: [true , "Please uploade Toper beautifull Image"]
     },
+    public_id:{
+        type: String,
+        required:true
+     },
     rank:{
        type: Number,
     },  

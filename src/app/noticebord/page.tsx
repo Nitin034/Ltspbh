@@ -1,6 +1,7 @@
 'use client'
 import Sidebar from '@/components/Sidebar'
 import axios from 'axios'
+import { NextResponse } from 'next/server'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -10,9 +11,12 @@ export default function NoticeBord() {
         noticeBord: "",
         postBy: ""
     })
-    const [buttonDisabled, setButtonDisabled] = useState(false)
 
-const [loading, setLoading] = useState(false)
+    const [noticebords, setNoticebords] = useState([]);
+    const [buttonDisabled, setButtonDisabled] = useState(false)
+    const timestamp = new Date(); 
+    const [loading, setLoading] = useState(false)
+   
 
 const onPublice = async () => {
     try {
@@ -32,6 +36,24 @@ useEffect(() => {
      setButtonDisabled(true)
     }
 }, [notice])
+
+const fetchNoticebordData = async () => {
+    try {
+        const response = await axios.get("/api/admin/noticeBord");
+        setNoticebords(response.data.data);
+        console.log(response.data.data);
+
+    } catch (error:any) {
+        return NextResponse.json({error: error.message}, {status: 500})
+    }
+}
+
+ 
+
+useEffect(() => {
+    fetchNoticebordData();
+}, []);
+
   return (
     <div>
       <Sidebar/>
@@ -43,6 +65,18 @@ useEffect(() => {
 <label htmlFor='Name' className="block mb-2 text-sm m-5 font-medium text-white">Administrator Name</label>
 <input id="name" value={notice.postBy} onChange={(e) => setNotice({...notice, postBy: e.target.value})} className='p-5 m-3'  placeholder="Enter Your Name" type="text"></input>
 <button className='bg-red-400 p-5 rounded-lg hover:bg-red-300 text-black' type='submit' onClick={onPublice}>{buttonDisabled ? "Enter New Notice" : "Publice"}</button>
+    </div>
+    <div className='px-2 py-3'>
+        {noticebords.map((noticebord: any)=> (
+            <div key={noticebord._id} className='border border-white px-3 py-3 mx-3 my-3 rounded-sm'>
+                <h1 className='bg-neutral-500 p-2'><span className='text-black font-bold'>YOUR NOTICE :</span>{noticebord.noticeBord}</h1>
+                <h2 className='bg-green-500 flex p-2'><span className='text-black font-bold'>POST BY :</span>{noticebord.postBy}</h2>
+                <a className='bg-sky-400 px-1 py-2 '><span className='text-black font-bold'>Date :</span>{new Date(noticebord.timestamp).toLocaleString()}</a>
+                <button className='bg-red-400 hover:bg-red-500 py-2 px-1 rounded-md m-3'>Delete Notice</button>
+            </div>
+        ))}
+        <h1></h1>
+
     </div>
     
  

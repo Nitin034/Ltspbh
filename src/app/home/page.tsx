@@ -5,7 +5,7 @@ import { LtspbLogosec } from "@/components/LtspbLogoSec";
 import { CardStackDemo } from "@/components/Noticbord";
 import { ParallaxScrollSecondDemo } from "@/components/GallarySection";
 import { TopperStudentbar } from "@/components/AwardStudent";
-import {  FounderSectionPara, TextGenerateEffectDemo } from "@/components/FounderSection";
+import FounderSection from "@/components/FounderSection";
 import { ContactCards, AddressCards } from "@/components/Contact";
 import { FooterSection } from "@/components/Footer";
 import { CardHoverEffectDemo } from '@/components/EnquiryProsses';
@@ -33,10 +33,9 @@ const Home = () => {
           <TopperStudentbar/>
           <Classroominfo/>
           </div>
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2  p-10 m-10">
-          <TextGenerateEffectDemo/>
-          <FounderSectionPara/>
-        </div>
+          <div>
+            <FounderSection/>
+          </div>
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2  p-10 m-10">
             <ContactCards/>
             <AddressCards/>

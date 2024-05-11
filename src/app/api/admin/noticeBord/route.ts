@@ -27,3 +27,19 @@ export async function POST(request: NextRequest){
         return NextResponse.json({error: error.message}, {status: 500})
     }
 }
+// const noticeData = { noticeBord: req.body.noticeBord, postBy: req.body.postBy, timestamp: timestamp };
+
+export async function GET(request: NextRequest){
+ try {
+    const noticebord = await Noticebord.find();
+    return NextResponse.json({
+        message: "Detaile Found",
+        data: noticebord
+    })
+ } catch (error:any) {
+    return NextResponse.json({error: error.message},{status: 500})
+ }
+}
+
+ 
+    
