@@ -33,20 +33,24 @@ export default function Infosection() {
       progress.set(0);
     }, [messageIndex]);
   return (
-    <div className='bg-white w-full'>
-        <div className='h-96 max-w-5xl mx-auto px-8'>
-            <h3 className='text-green-800 py-2 font-extrabold text-xl'>WELCOME TO LEARNING TREE SCHOOLS</h3>
-            <h1 className="text-orange-400 font-extrabold text-6xl">START EARLY, STAY AHEAD</h1>
-            <h4 className='text-slate-900 py-5 font-bold text-lg flex'>Let your child live in the moment, being a
-            <span className="px-2" ><motion.h1
-        style={{ color: fill, fontSize: "3rem", fontWeight: "bold" }}
+    <div className=' w-full'>
+        <div className='h-auto py-10 max-w-[85rem] mx-auto px-8'>
+          <div className="shadow-lg shadow-black bg-white/80  px-10 py-28 my-10 rounded-[2rem]"> 
+            <h3 className='text-green-800 py-2 drop-shadow-md font-extrabold text-xl'>WELCOME TO LEARNING TREE SCHOOLS</h3>
+            {/* <img className=" max-h-40 sm:max-h-80 lg:max-h-[50rem] -z-10 absolute -mt-1" src="/images/kids-education-removebg.png" alt="image" /> */}
+            <h1 className="text-orange-400 drop-shadow-md font-extrabold text-6xl">START EARLY, STAY AHEAD</h1>
+            <h4 className='text-slate-900 drop-shadow-md py-5 font-bold text-lg flex'>Let your child live in the moment, being a
+            <span className="px-2 text-2xl sm:text-5xl" ><motion.h1
+        style={{ color: fill, fontWeight: "bold" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >{messages[messageIndex]}</motion.h1></span>
       </h4>
-      <p className="text-slate-900 text-lg">We believe every child wakes up to be something different every day. At Learning Tree Schools, our teachers nurture your child's natural curiosity and inspire a lifelong love for learning.
-      <span className="text-xl flex py-3 font-medium">Learning Tree Schools : Where every child discovers their passion.</span></p>
+      <p className="text-slate-900 drop-shadow-md text-lg">We believe every child wakes up to be something different every day. At Learning Tree Schools, our teachers nurture your child's natural curiosity and inspire a lifelong love for learning.</p>
+      <p className="text-slate-900 drop-shadow-md text-lg">We prioritize your child's academic and personal growth. Experience top-notch education and caring teachers.
+      <span className="text-xl flex py-3 drop-shadow-md font-medium">Learning Tree Schools : Where every child discovers their passion.</span></p>
+      </div>
         </div>
        
       

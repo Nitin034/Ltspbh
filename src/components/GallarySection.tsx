@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ParallaxScrollSecond } from "./ui/parallax-scroll";
 import axios from "axios";
 
-export function ParallaxScrollSecondDemo() {
+export function GallaryScrool() {
   const [fetchedImages, setFetchedImages] = useState<string[]>([]);
 
   useEffect(() => {

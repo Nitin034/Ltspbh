@@ -5,12 +5,13 @@ import { Input } from "./ui/input";
 import { cn } from "@/utils/cn";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Select } from "./ui/select";
  
 
 export function ApplicationFrom() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    // console.log("Form submitted");
   };
 
   const [student, setStudent] = useState({
@@ -29,12 +30,17 @@ export function ApplicationFrom() {
     try {
       setLoading(true)
       const response = await axios.post("/api/admin/student", student)
-      console.log("Your Enquiry Successfully Added" , response.data);
-      // window.location.reload();
+      // console.log("Your Enquiry Successfully Added" , response.data);
+      setStudent({ studentname: "",
+      studentclass: "",
+      fathername: "",
+      email: "",
+      mobilenumber: "",
+      studentaddress: "",})
       
       
     } catch (error : any) {
-      console.log("Your Enquiry Added failed")
+      // console.log("Your Enquiry Added failed")
       toast.error(error.message)
        
     }
@@ -67,7 +73,12 @@ export function ApplicationFrom() {
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="Classname">Seeking Admission in Class</Label>
-            <Input id="class" value={student.studentclass} onChange={(e) => setStudent({...student, studentclass: e.target.value})}placeholder="LKG*" type="text" />
+            <Select  id="class" value={student.studentclass} onChange={(e) => setStudent({...student, studentclass: e.target.value})}>
+            <option value="PLAY">PLAY</option>
+            <option value="LKG">LKG</option>
+            <option value="UKG">UKG </option>
+            <option value="FIRST">FIRST</option>
+            </Select>
           </LabelInputContainer>
         </div>
           <LabelInputContainer>

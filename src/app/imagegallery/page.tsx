@@ -51,7 +51,7 @@ const Page = () => {
         try {
             const { data } = await axios.delete('/api/admin/upload-image/' + id.replace('Ltspb-Images/', ''));
             await fetchAllImages();
-            console.log(data);
+            // console.log(data);
         } catch (error: any) {
           return NextResponse.json({ msg: error.message }, { status: 200 });
         } finally {

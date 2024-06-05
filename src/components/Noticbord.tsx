@@ -1,50 +1,44 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
 import { CardStack } from "./ui/card-stack";
 import { cn } from "@/utils/cn";
-import axios from "axios";
-import { NextResponse } from "next/server";
-export function CardStackDemo() {
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
-  const [noticebords, setNoticebords] = useState([]);
- 
-  const fetchNoticebordData = async () => {
-    try {
-        const response = await axios.get("/api/admin/noticeBord");
-        setNoticebords(response.data.data);
-        console.log(response.data.data);
-
-    } catch (error:any) {
-        return NextResponse.json({error: error.message}, {status: 500})
-    }
+interface Notice {
+  _id: string;
+  noticeBord: string;
+  postBy: string;
+  timestamp: string;
 }
 
-useEffect(() => {
+export function NoticeCard() {
+  const [noticebords, setNoticebords] = useState<Notice[]>([]);
+
+  const fetchNoticebordData = async () => {
+    try {
+      const response = await axios.get("/api/admin/noticeBord");
+      setNoticebords(response.data.data);
+      // console.log(response.data.data);
+    } catch (error) {
+      // console.log("Error fetching notice board data", error);
+      toast.error("Error fetching notice board data");
+    }
+  };
+
+  useEffect(() => {
     fetchNoticebordData();
-}, []);
+  }, []);
 
   return (
-    <div className="h-[40rem] flex items-center justify-center w-full">
-      <CardStack items={CARDS} />
+    <div className="h-[40rem] flex items-center justify-center w-full mx-auto">
+      <CardStack items={noticebords.map((notice) => ({
+        id: notice._id,
+        name: notice.postBy,
+        designation: notice.timestamp,
+        content: notice.noticeBord,
+      }))} />
     </div>
-
-/* <div> 
-{noticebords.map((noticebord: any)=> (
-<div className="h-[40rem] flex items-center justify-center w-full">
-  <CardStack items={[{
-     id: 0,
-         name: new Date(noticebord.timestamp).toLocaleString(),
-         designation: noticebord.postBy,
-         content: (
-           <p>
-              {noticebord.noticeBord}
-           </p>
-         )
-  }]} />
-</div>
-
-))}
-</div> */
   );
 }
 
@@ -67,44 +61,3 @@ export const Highlight = ({
     </span>
   );
 };
-
-const CARDS = [
-  {
-    id: 0,
-    name: "Manu Arora",
-    designation: "Senior Software Engineer",
-    content: (
-      <p>
-        These cards are amazing, <Highlight>I want to use them</Highlight> in my
-        project. Framer motion is a godsend ngl tbh fam 🙏
-      </p>
-    ),
-  },
-  {
-    id: 1,
-    name: "Elon Musk",
-    designation: "Senior Shitposter",
-    content: (
-      <p>
-        I dont like this Twitter thing,{" "}
-        <Highlight>deleting it right away</Highlight> because yolo. Instead, I
-        would like to call it <Highlight>X.com</Highlight> so that it can easily
-        be confused with adult sites.
-      </p>
-    ),
-  },
-  {
-    id: 2,
-    name: "Tyler Durden",
-    designation: "Manager Project Mayhem",
-    content: (
-      <p>
-        The first rule of
-        <Highlight>Fight Club</Highlight> is that you do not talk about fight
-        club. The second rule of
-        <Highlight>Fight club</Highlight> is that you DO NOT TALK about fight
-        club.
-      </p>
-    ),
-  },
-];

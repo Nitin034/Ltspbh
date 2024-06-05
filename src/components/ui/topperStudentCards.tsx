@@ -9,17 +9,19 @@ export const TopperStudentCards = ({
   speed = "fast",
   pauseOnHover = true,
   className,
+  fetchAllWinners, // Receive the fetchAllWinners prop
 }: {
   items: {
     quote: string;
     name: string;
     title: string;
-   
+    image: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
+  fetchAllWinners: () => void; // Define the type of fetchAllWinners
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
@@ -70,6 +72,11 @@ export const TopperStudentCards = ({
       }
     }
   };
+
+  useEffect(() => {
+    fetchAllWinners(); // Call fetchAllWinners on component mount
+  }, [fetchAllWinners]);
+
   return (
     <div
       ref={containerRef}
@@ -93,38 +100,28 @@ export const TopperStudentCards = ({
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
             }}
-            key={item.name}
+            key={`${item.name}-${idx}`} // Ensure the key is unique
           >
             <blockquote>
-          <div className="flex flex-col items-center pb-10">
-         <img className="w-28 h-28 -mt-10 mb-3 rounded-full shadow-lg" src="/images/IMG-20240422-WA0003.jpg" alt="student image"/>
-        <h5 className="mb-1 text-xl font-medium text-orange-400 dark:text-white">{item.name}</h5>
-        <span className="text-sm text-amber-600 dark:text-gray-400"> {item.title}</span>
-        <div className="flex mt-4 md:mt-6">
-        <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
-                {item.quote}
-              </span>
-        </div>
-    </div>
- 
-
-              {/* <div
-                aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-              ></div>
-              <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
-                {item.quote}
-              </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.name}
-                  </span>
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.title}
-                  </span>
+              <div className="flex flex-col items-center pb-10">
+                <img
+                  className="w-28 h-28 -mt-10 mb-3 rounded-full shadow-lg"
+                  src={item.image}
+                  alt="student image"
+                />
+                <h5 className="mb-1 text-xl font-medium text-orange-400 dark:text-white">
+                  {item.name}
+                </h5>
+                <span className="text-sm text-amber-600 dark:text-gray-400">
+                  {" "}
+                  {item.title}
                 </span>
-              </div> */}
+                <div className="flex mt-4 md:mt-6">
+                  <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
+                    {item.quote}
+                  </span>
+                </div>
+              </div>
             </blockquote>
           </li>
         ))}

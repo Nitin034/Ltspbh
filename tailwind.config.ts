@@ -16,6 +16,12 @@ module.exports = {
     },
     // Rest of the code
     extend: {
+        backgroundImage: {
+          'hero-pattern': "url('/images/kids-education-removebg.png')",
+          'info-texture': "url('/images/article-hero-image-2-removebg-preview.png')",
+          'awar-texture': "url('/images/girlbooks-removebg-preview.png')",
+          'end-texture': "url('/images/istockphoto-1067928292-612x612.jpg')",
+        },
       boxShadow: {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },

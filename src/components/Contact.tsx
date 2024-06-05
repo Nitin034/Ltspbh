@@ -4,17 +4,15 @@ import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/contact-addres-card";
 import Link from "next/link";
+import LogoSvg from "./LogoSvg";
 
 export function ContactCards() {
   return (
     <CardContainer className="inter-var">
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-        <CardItem
-          translateZ="50"
-          className="w-1/2 m-auto"
-        >
-          <img src="/images/IMG-20240422-WA0002.jpg" alt="logo" ></img>
-        </CardItem>
+      <div className="w-56 h-56 flex mx-auto">
+      <LogoSvg/>
+      </div>
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-neutral-800 dark:text-white"
@@ -32,41 +30,36 @@ export function ContactCards() {
           as="p"
           translateZ="60"
           className="text-neutral-700 text-sm max-w-sm mt-2 dark:text-neutral-300"
-        >
-          <a className="text-neutral-800 text-lg font-semibold">CALL US ON : </a> 
-          2222-3333333-20
+        ><Link className="hover:text-blue-900" href="https://www.whatsapp.com"  ><span className="text-neutral-800 text-lg font-semibold mr-2">CALL US ON  </span>8787050522</Link> 
+          
+           
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-700 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          <a className="text-neutral-800 text-lg font-semibold">Instagram:</a> 
-          learnihg_tree_School_Pb
+           <Link className="hover:text-blue-900" href="https://www.instagram.com/_learning_tree_school_pbh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  ><span className="text-neutral-800 text-lg font-semibold mr-2">Instagram: </span>_learning_tree_school_pbh </Link> 
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="text-neutral-700 text-sm max-w-sm mt-2 dark:text-neutral-300"
+        ><Link className="hover:text-blue-900" href="https://www.whatsapp.com"  ><span className="text-neutral-800 text-lg font-semibold mr-2">WhatAppp: </span>8787050522</Link> 
+          
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-700 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          <a className="text-neutral-800 text-lg font-semibold">WhatAppp:</a> 
-          90988938993
+         <Link className="hover:text-blue-900" href="https://www.facebook.com"  ><span className="text-neutral-800 text-lg font-semibold mr-2">Facebook : </span>Learning_tree_school_pbh </Link> 
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-700 text-sm max-w-sm mt-2 dark:text-neutral-300"
-        >
-          <a className="text-neutral-800 text-lg font-semibold">FaceBook:</a> 
-          ltspb
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="text-neutral-700 text-sm max-w-sm mt-2 dark:text-neutral-300"
-        >
-          <a className="text-neutral-800 text-lg font-semibold">Email:</a> 
-          ltspb@gmail.com
+        ><Link className="hover:text-blue-900" href="https://google.com"  ><span className="text-neutral-800 text-lg font-semibold mr-2">Email: </span>ltspb@gmail.com</Link> 
         </CardItem>
         <CardItem
           as="p"

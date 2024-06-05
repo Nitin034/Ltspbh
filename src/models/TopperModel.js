@@ -1,29 +1,28 @@
-import mongoose from "mongoose";
+ import mongoose from "mongoose";
 
-
-const topperSchema = new mongoose.Schema({
-    topperName: {
+ const 	winnerSchema = new mongoose.Schema({
+    image_url: {
         type: String,
-        required: [true, "Please Write topper Name"]
+        required: [true, "Please Upload Winner Student picture"]
     },
-    someText: {
+    public_id: {
         type: String,
-        required: [true, "Please Write A Message for Student"]
+        required: true
     },
-    toper_Image: {
-        type: String, // cloudinary url
-        required: [true , "Please uploade Toper beautifull Image"]
-    },
-    public_id:{
+    winner_name: {
         type: String,
-        required:true
-     },
-    rank:{
-       type: Number,
-    },  
+        required: true
+    },
+    winner_rank: {
+        type: String,
+    },
     
-}, {timestamps: true})
+    winner_message:{
+        type: String,
+        required: true
+    }
+ }, {timestamps: true})
 
-const Topper = mongoose.models.toppers || mongoose.model("toppers", topperSchema)
+ const Winner = mongoose.models.winners || mongoose.model("winners", winnerSchema)
 
-export default Topper
+ export default Winner

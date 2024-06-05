@@ -1,48 +1,48 @@
-"use client";
-
+"use client"
 import React, { useEffect, useState } from "react";
 import { TopperStudentCards } from "./ui/topperStudentCards";
+import axios from "axios";
 
-export function  TopperStudentbar() {
+export function TopperStudentbar() {
+  // Specify the type of winners as an array of objects
+  const [winners, setWinners] = useState<{
+    winner_message: string;
+    winner_name: string;
+    winner_rank: string;
+    image_url: string;
+  }[]>([]);
+
+  const fetchAllWinners = async () => {
+    try {
+      const { data: { winners } } = await axios.get('/api/admin/winner');
+      setWinners(winners);
+    } catch (error) {
+      console.error("Error fetching winners:", error);
+    }
+  }; 
+
+  useEffect(() => {
+    fetchAllWinners();
+  }, []);
+
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className=" max-w-[85rem] mx-auto px-8"> 
+    <div className="shadow-lg shadow-black bg-white/80 bg-no-repeat bg-cover py-28 my-10 rounded-[2rem]">
+    <div className="rounded-md flex flex-col antialiased  dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
       <TopperStudentCards
-        items={testimonials}
+        items={winners.map(winner => ({
+          quote: winner.winner_message,
+          name: winner.winner_name,
+          title: winner.winner_rank,
+          image: winner.image_url,
+        }))}
         direction="right"
         speed="slow"
+        fetchAllWinners={fetchAllWinners}
       />
+    </div>
+    </div>
     </div>
   );
 }
 
-const testimonials = [
-  {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
-  },
-  {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
-  },
-  {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-  },
-];

@@ -1,6 +1,7 @@
 import cloudinary from "./cloudinary";
 
 
+
 export const UploadImage = async(file:File,folder:string)=> {
     
     const bufffer = await file.arrayBuffer();
@@ -8,7 +9,7 @@ export const UploadImage = async(file:File,folder:string)=> {
 
 
 
-  return  new Promise(async(resolve,reject)=>{
+  return  new Promise<any>(async(resolve,reject)=>{
        await cloudinary.uploader.upload_stream({
             resource_type: "auto",
             folder: folder,
@@ -22,7 +23,7 @@ export const UploadImage = async(file:File,folder:string)=> {
 }
 export const DeleteImage = async(public_id:string)=> {
     
- return new Promise(async(resolve, reject) => {
+ return new Promise<any>(async(resolve, reject) => {
     try {
         const result = await cloudinary.uploader.destroy(public_id) ;
         return resolve(result);

@@ -14,7 +14,7 @@ export function Navbar({ className }: { className?: string }) {
         <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item={""}>
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/home">Home</HoveredLink>
+            <HoveredLink href="/">Home</HoveredLink>
             <HoveredLink href="/login">Erp</HoveredLink>
             <HoveredLink href="/Contect">Context</HoveredLink>
             <HoveredLink href="/login">Pay fee</HoveredLink>

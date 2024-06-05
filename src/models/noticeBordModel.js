@@ -10,10 +10,7 @@ const noticebordSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a New Notice Message"]
     },
-    // postBy:{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "User",
-    // }
+   
 
   
     

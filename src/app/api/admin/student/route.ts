@@ -20,7 +20,7 @@ export async function POST(request: NextRequest){
         })
 
         const savedStudent = await newStudent.save()
-        console.log(savedStudent);
+        // console.log(savedStudent);
 
         return NextResponse.json({
             message: "Student Data Successfully Saved",
